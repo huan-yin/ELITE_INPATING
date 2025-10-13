@@ -32,3 +32,14 @@ python mvtec_defect_collector.py
 ```
 bash train_global.sh
 ```
+
+
+## How to inference
+### Inference without gradient
+```
+python reference_inpainting_inference.py
+```
+### Inference with gradient
+```
+reference_inpainting_inference_with_gradient.py
+```
