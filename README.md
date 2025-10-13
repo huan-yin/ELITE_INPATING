@@ -41,5 +41,5 @@ python reference_inpainting_inference.py
 ```
 ### Inference with gradient
 ```
-reference_inpainting_inference_with_gradient.py
+python reference_inpainting_inference_with_gradient.py
 ```
