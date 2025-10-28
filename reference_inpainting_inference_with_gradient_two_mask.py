@@ -452,8 +452,8 @@ def perform_iterative_refinement_step(
     return loss, latents
 
 pretrained_model_name_or_path = "sd-legacy/stable-diffusion-inpainting"
-# global_mapper_path = "/data1/lxy/project/generation/ELITE/elite_experiments/global_mapping/mapper_004000.pt"
-global_mapper_path = "/data1/lxy/project/generation/ELITE_OURS/elite_experiments/mvtec_global_mapping_ref_random/mapper_020000.pt"
+
+global_mapper_path = "elite_experiments/mvtec_global_mapping/mapper.pt"
 device = "cuda:0"
 vae, unet, text_encoder, tokenizer, image_encoder, mapper, scheduler = pww_load_tools(
             device,
@@ -471,19 +471,16 @@ with torch.no_grad():
             num_train_timesteps=1000,
         )
 
-    image_path = "/data1/lxy/project/generation/ELITE/datasets/mvtec/images/train/bottle/good/000.png"
-    # image_path = "/data1/lxy/project/generation/ELITE/overture-creations-5sI6fQgYIuo.png"
+    image_path = "datasets/mvtec_defect_collection/images/bottle_broken_large_000.png"
     image_pil = Image.open(image_path)
 
-    mask_path = "/data1/lxy/project/generation/ELITE/datasets/mvtec/masks/test/bottle/broken_small/006_mask.png"
-    # mask_path = "/data1/lxy/project/generation/ELITE/overture-creations-5sI6fQgYIuo_mask.png"
+    mask_path = "datasets/mvtec_defect_collection/masks/bottle_broken_large_000_mask.png"
     mask_pil = Image.open(mask_path)
 
-    ref_image_path = "/data1/lxy/project/generation/ELITE/datasets/mvtec/images/test/bottle/broken_small/007.png"
-    # ref_image_path = "/data1/lxy/project/generation/ELITE/test_datasets/1.jpg"
+    ref_image_path = "datasets/mvtec_defect_collection/images/bottle_broken_large_000.png"
     ref_image_pil = Image.open(ref_image_path)
 
-    ref_mask_path = "/data1/lxy/project/generation/ELITE/datasets/mvtec/masks/test/bottle/broken_small/007_mask.png"
+    ref_mask_path = "datasets/mvtec_defect_collection/masks/bottle_broken_large_000_mask.png"
     ref_mask_pil = Image.open(ref_mask_path)
     
 
